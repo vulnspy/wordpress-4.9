@@ -1,9 +1,18 @@
 version: '3'
 
 services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
   web:
-    image: vsplate/deb_apache2_php7_mysql5:latest
+    image: wordpress:4.9-apache
+    depends_on:
+      - db
     volumes:
-      - ./wordpress/:/var/www/html/
+      - ./wordpress:/var/www/html/
     ports:
       - "80:80"
