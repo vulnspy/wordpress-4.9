@@ -6,7 +6,7 @@ if (!$con)
   }
 
 $sql = "CREATE DATABASE IF NOT EXISTS wordpress";
-mysqli_query($sql,$con);
+mysqli_query($con, $sql);
 mysqli_close($con);
 header("location: /wp");
 ?>
