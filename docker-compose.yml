@@ -9,10 +9,8 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
   web:
-    image: wordpress:4.9-apache
+    image: vsplate/wordpress-4.9
     depends_on:
       - db
-    volumes:
-      - ./wordpress:/var/www/html/
     ports:
       - "80:80"
